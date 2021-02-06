@@ -32,8 +32,8 @@ module.exports = function (app) {
   const file = path.join(__dirname, "../db/db.json");
 
   for(const note of notes) {
-    if (id === note.id) {
-      const index = notes.indexOf(notes);
+    if (id === notes.id) {
+      const index = notes.indexOf(note);
       notes.splice(index, 1);
       fs.writeFile(file, JSON.stringify(notes, null, 4), err => {
         if (err) throw err;
@@ -41,5 +41,6 @@ module.exports = function (app) {
       })
       res.end();
     }
-  }});
+  }
+});
 };
